@@ -22,7 +22,27 @@ function createTimeOutEvent(employee, datestamp) {
 }
 
 function hoursWorkedOnDate(employee, date) {
-  const timeInHour = employee.timeInEvents.find( x => x.date === date);
-  const timeOutHour = employee.timeOutEvents.find( x => x.date === date);
-  return timeOutHour - timeInHour;
+  const timeInHour = employee.timeInEvents.find( x => x.date === date).hour;
+  const timeOutHour = employee.timeOutEvents.find( x => x.date === date).hour;
+  return (timeOutHour - timeInHour)/100;
+}
+
+function wagesEarnedOnDate(employee, date) {
+  return hoursWorkedOnDate(employee, date) * employee.payPerHour;
+}
+
+function allWagesFor(employee) {
+  return employee.timeInEvents.map( x => {
+    const date = x.date;
+    return wagesEarnedOnDate(employee, date);
+  })
+  .reduce( (total, wage) => total + wage, 0);
+}
+
+function calculatePayroll(employees) {
+  return employees.map(employee => allWagesFor(employee)).reduce( (total, wage) => total + wage)
+}
+
+function findEmployeeByFirstName () {
+
 }
