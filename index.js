@@ -43,6 +43,6 @@ function calculatePayroll(employees) {
   return employees.map(employee => allWagesFor(employee)).reduce( (total, wage) => total + wage)
 }
 
-function findEmployeeByFirstName () {
-
+function findEmployeeByFirstName (employees, firstName) {
+  return employees.find( x => x.firstName === firstName);
 }
