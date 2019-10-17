@@ -13,3 +13,16 @@ function createTimeInEvent(employee, datestamp) {
   employee.timeInEvents.push(newTimeInEvent);
   return employee;
 }
+
+function createTimeOutEvent(employee, datestamp) {
+  const [date, hour] = datestamp.split(' ');
+  const newTimeOutEvent = Object.assign({}, { type: 'TimeOut', hour: parseInt(hour), date: date})
+  employee.timeOutEvents.push(newTimeOutEvent);
+  return employee;
+}
+
+function hoursWorkedOnDate(employee, date) {
+  const timeInHour = employee.timeInEvents.find( x => x.date === date);
+  const timeOutHour = employee.timeOutEvents.find( x => x.date === date);
+  return timeOutHour - timeInHour;
+}
