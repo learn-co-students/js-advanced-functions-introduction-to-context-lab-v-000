@@ -18,9 +18,28 @@ const createEmployeeRecords = function(employeeRowInfo) {
 }
 
 const createTimeInEvent = function(employeeObj, dateStamp) {
-    dateStamp = new Date();
-    employeeObj.timeInEvents = [ { type: 'TimeIn',
-                                hour: dateStamp.getHours(),
-                                date: dateStamp.toDateString()
-    }]
+    let date = dateStamp.split(" ")[0];
+    let hour = parseInt(dateStamp.split(" ")[1]);
+
+    employeeObj['timeInEvents'].push({type: 'TimeIn',
+                               date: date,
+                               hour: hour
+    })
+    return employeeObj;
+}
+
+const createTimeOutEvent = function (employeeObj, dateStamp) {
+    let date = dateStamp.split(" ")[0];
+    let hour = parseInt(dateStamp.split(" ")[1]);
+
+    employeeObj['timeOutEvents'].push({
+        type: 'TimeOut',
+        date: date,
+        hour: hour
+    })
+    return employeeObj;
+}
+
+const hoursWorkedOnDate = function(employeeObj, date) {
+    employeeObj['timeInEvents'].map
 }
