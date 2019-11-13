@@ -17,11 +17,10 @@ const createEmployeeRecords = function(employeeRowInfo) {
     })
 }
 
-const createTimeInEvent = function(employeeRowInfo) {
-    return employeeRowInfo.map(function() {
-        return employeeRowInfo[timeInEvents] = {type: "TimeIn",
-        hour: Date.time.now,
-        date: Date.time.now
-    }
-    })
+const createTimeInEvent = function(employeeObj, dateStamp) {
+    dateStamp = new Date();
+    employeeObj.timeInEvents = [ { type: 'TimeIn',
+                                hour: dateStamp.getHours(),
+                                date: dateStamp.toDateString()
+    }]
 }
