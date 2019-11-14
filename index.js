@@ -21,9 +21,10 @@ const createTimeInEvent = function(employeeObj, dateStamp) {
     let date = dateStamp.split(" ")[0];
     let hour = parseInt(dateStamp.split(" ")[1]);
 
-    employeeObj['timeInEvents'].push({type: 'TimeIn',
-                               date: date,
-                               hour: hour
+    employeeObj['timeInEvents'].push({
+        type: 'TimeIn',
+        date: date,
+        hour: hour
     })
     return employeeObj;
 }
@@ -41,5 +42,27 @@ const createTimeOutEvent = function (employeeObj, dateStamp) {
 }
 
 const hoursWorkedOnDate = function(employeeObj, date) {
-    employeeObj['timeInEvents'].map
+    let inEvent = employeeObj.timeInEvents.find(event => event.date === date);
+    
+    let outEvent = employeeObj.timeOutEvents.find(event => event.date === date);
+    
+    return (outEvent.hour - inEvent.hour) / 100
+}
+
+const wagesEarnedOnDate = function(employeeObj, date) {
+    let wage = hoursWorkedOnDate(employeeObj, date) * employeeObj.payPerHour;
+    return wage;
+}
+
+const allWagesFor = function(employeeObj) {
+    
+    let datesWorked = employeeObj.timeInEvents.map(function(dateObj) {
+        return dateObj.date
+    })
+    // wagesEarnedOnDate(employeeObj, datesWorked)
+    let accWages = datesWorked.reduce(function(total, date) {return total + wagesEarnedOnDate(employeeObj, date)}, 0)
+
+    return accWages;
+    // use reduce here
+    // wagesEarnedOnDate(employeeObj, date)
 }
