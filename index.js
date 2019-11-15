@@ -67,10 +67,10 @@ const allWagesFor = function(employeeObj) {
     // wagesEarnedOnDate(employeeObj, date)
 }
 
-const calculatePayroll = function() {
-
+const findEmployeeByFirstName = function (srcArray, firstName) {
+    return firstName = srcArray.find(employeeObj => employeeObj.firstName === firstName)
 }
 
-const findEmployeeByFirstName = function(srcArray, firstName) {
-    let employeeFirstName = srcArray.map(employeeObj => employeeObj.firstName)
+const calculatePayroll = function(Array) {
+    return Array.reduce((total, employee) => total + allWagesFor(employee), 0)
 }
