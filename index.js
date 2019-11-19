@@ -59,8 +59,8 @@ const allWagesFor = (obj) => {
 }
 
 const calculatePayroll = (arr) => {
-    let totals = arr.map(emp => allWagesFor(emp))
-    let sum = totals.reduce((accum, el) => {return accum + el}, 0)
+    // let totals = arr.map(emp => allWagesFor(emp))
+    let sum = arr.reduce((accum, el) => {return accum + allWagesFor(el)}, 0)
     return sum
 }
 
