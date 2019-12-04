@@ -16,8 +16,14 @@ function createEmployeeRecords(array){
 return array.map(element => createEmployeeRecord(element))
 }
 
-function createTimeInEvent(){
-
+function createTimeInEvent(record,date){
+let splitDate = date.split(' ')
+let day = splitDate[0]
+let hour = splitDate[1]
+// in array - timeEvents. add type, hour, date
+var checkIn = {}
+checkIn["TimeIn"] = record.timeInEvents.type
+console.log(record.timeInEvents)
 }
 
 function createTimeOutEvent(){
@@ -33,5 +39,9 @@ function wagesEarnedOnDate(){
 }
 
 function allWagesFor(){
+
+}
+
+function calculatePayroll(){
 
 }
