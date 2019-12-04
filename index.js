@@ -11,3 +11,27 @@ function createEmployeeRecord(array){
 }
 return card
 }
+
+function createEmployeeRecords(array){
+return array.map(element => createEmployeeRecord(element))
+}
+
+function createTimeInEvent(){
+
+}
+
+function createTimeOutEvent(){
+
+}
+
+function hoursWorkedOnDate(){
+
+}
+
+function wagesEarnedOnDate(){
+
+}
+
+function allWagesFor(){
+
+}
