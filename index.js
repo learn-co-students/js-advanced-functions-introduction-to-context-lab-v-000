@@ -44,8 +44,15 @@ function allWagesFor(){
 }
 
 
-function findEmployeeByFirstName(){
-
+function findEmployeeByFirstName(srcArray,firstName){
+// srcArray.filter({
+//   if (firstName){
+//     return firstName
+//     else {
+//       return undefined
+//     }
+//   }
+// })
 }
 
 function calculatePayroll(){
