@@ -23,22 +23,28 @@ let hour = splitDate[1]
 // in array - timeEvents. add type, hour, date
 var checkIn = {}
 checkIn["TimeIn"] = record.timeInEvents.type
-console.log(record.timeInEvents)
+// console.log(record.timeInEvents.push(checkIn))
 }
 
-function createTimeOutEvent(){
-
-}
-
-function hoursWorkedOnDate(){
+function createTimeOutEvent(record,date){
 
 }
 
-function wagesEarnedOnDate(){
+function hoursWorkedOnDate(record,date){
+//on that date. time out - time in X payrate
+console.log(record)
+}
+
+function wagesEarnedOnDate(record, date){
 
 }
 
 function allWagesFor(){
+
+}
+
+
+function findEmployeeByFirstName(){
 
 }
 
