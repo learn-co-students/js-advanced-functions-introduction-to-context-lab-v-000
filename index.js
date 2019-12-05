@@ -32,6 +32,18 @@ return record
 }
 
 function createTimeOutEvent(record,date){
+  let splitDate = date.split(' ')
+  let day = splitDate[0]
+  let hour = Number(splitDate[1])
+
+  // in array - timeEvents. add type, hour, date
+  let checkIn = {
+    type: 'TimeOut',
+    hour: hour,
+    date: day
+  }
+  record.timeOutEvents.push(checkIn)
+  return record
 
 }
 
