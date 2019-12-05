@@ -50,13 +50,14 @@ function hoursWorkedOnDate(record,date){
 //on that date. time out - time in X payrate
 
 let hours = record.timeInEvents[0].hour - record.timeOutEvents[0].hour
-let positiveHours = Math.abs(hours)
-return (positiveHours / 100)
+let positiveHours = Math.abs(hours) / 100
+return positiveHours
 
 }
 
 function wagesEarnedOnDate(record, date){
 
+return hoursWorkedOnDate(record,date) * record.payPerHour
 }
 
 function allWagesFor(){
