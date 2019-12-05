@@ -56,12 +56,13 @@ return positiveHours
 }
 
 function wagesEarnedOnDate(record, date){
-
 return hoursWorkedOnDate(record,date) * record.payPerHour
 }
 
-function allWagesFor(){
 
+
+function allWagesFor(record){
+wagesEarnedOnDate
 }
 
 
@@ -69,6 +70,6 @@ function findEmployeeByFirstName(srcArray,firstName){
 
 }
 
-function calculatePayroll(){
+function calculatePayroll(array){
 
 }
