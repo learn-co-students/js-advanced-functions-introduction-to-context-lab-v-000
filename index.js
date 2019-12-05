@@ -44,14 +44,15 @@ function createTimeOutEvent(record,date){
   }
   record.timeOutEvents.push(checkIn)
   return record
-
 }
 
 function hoursWorkedOnDate(record,date){
 //on that date. time out - time in X payrate
-console.log(timeInEvent)
-let hours = record.timeOutEvent - record.timeInEvent
-// console.log(hours)
+
+let hours = record.timeInEvents[0].hour - record.timeOutEvents[0].hour
+let positiveHours = Math.abs(hours)
+return (positiveHours / 100)
+
 }
 
 function wagesEarnedOnDate(record, date){
