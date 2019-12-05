@@ -49,7 +49,9 @@ function createTimeOutEvent(record,date){
 
 function hoursWorkedOnDate(record,date){
 //on that date. time out - time in X payrate
-
+console.log(timeInEvent)
+let hours = record.timeOutEvent - record.timeInEvent
+// console.log(hours)
 }
 
 function wagesEarnedOnDate(record, date){
