@@ -19,11 +19,16 @@ return array.map(element => createEmployeeRecord(element))
 function createTimeInEvent(record,date){
 let splitDate = date.split(' ')
 let day = splitDate[0]
-let hour = splitDate[1]
+let hour = Number(splitDate[1])
+
 // in array - timeEvents. add type, hour, date
-var checkIn = {}
-checkIn["TimeIn"] = record.timeInEvents.type
-// console.log(record.timeInEvents.push(checkIn))
+let checkIn = {
+  type: 'TimeIn',
+  hour: hour,
+  date: day
+}
+record.timeInEvents.push(checkIn)
+return record
 }
 
 function createTimeOutEvent(record,date){
@@ -32,7 +37,7 @@ function createTimeOutEvent(record,date){
 
 function hoursWorkedOnDate(record,date){
 //on that date. time out - time in X payrate
-console.log(record)
+
 }
 
 function wagesEarnedOnDate(record, date){
@@ -45,14 +50,7 @@ function allWagesFor(){
 
 
 function findEmployeeByFirstName(srcArray,firstName){
-// srcArray.filter({
-//   if (firstName){
-//     return firstName
-//     else {
-//       return undefined
-//     }
-//   }
-// })
+
 }
 
 function calculatePayroll(){
