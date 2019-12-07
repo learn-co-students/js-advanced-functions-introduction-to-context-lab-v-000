@@ -99,5 +99,7 @@ return srcArray.find(element => element.firstName === firstName)
 }
 
 function calculatePayroll(array){
-
+return array.reduce(function(index,record){
+  return index + allWagesFor(record)
+},0)
 }
