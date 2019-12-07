@@ -46,25 +46,51 @@ function createTimeOutEvent(record,date){
   return record
 }
 
-function hoursWorkedOnDate(record,date){
+function hoursWorkedOnDate(employee,soughtDate){
 //on that date. time out - time in X payrate
 
-let hours = record.timeInEvents[0].hour - record.timeOutEvents[0].hour
-let positiveHours = Math.abs(hours) / 100
-return positiveHours
+// let hours = record.timeInEvents[0].hour - record.timeOutEvents[0].hour
+// let positiveHours = Math.abs(hours) / 100
+// return positiveHours
+let inEvent = employee.timeInEvents.find(function(e){
+        return e.date === soughtDate
+    })
+
+    let outEvent = employee.timeOutEvents.find(function(e){
+        return e.date === soughtDate
+    })
+
+    return (outEvent.hour - inEvent.hour) / 100
+
 
 }
 
-function wagesEarnedOnDate(record, date){
-return hoursWorkedOnDate(record,date) * record.payPerHour
+function wagesEarnedOnDate(employee, dateSought){
+// return hoursWorkedOnDate(record,date) * record.payPerHour
+let rawWage = hoursWorkedOnDate(employee, dateSought)
+        * employee.payPerHour
+    return parseFloat(rawWage.toString())
 }
 
 
 
-function allWagesFor(record){
-console.log(hoursWorkedOnDate(record,date))
-//map then reduce the value
-//foreach card.... find the wages
+function allWagesFor(employee){
+//  let timeFor = record.timeInEvents.map(element => element.date)
+// // timeFor.reduce(element => element)
+// // console.log(timeFor)
+// // return wagesEarnedOnDate(record,timeFor)
+// return timeFor.reduce(function(memo, d){
+//         return memo + wagesEarnedOnDate(record, d)
+//     }, 0)
+let eligibleDates = employee.timeInEvents.map(function(e){
+        return e.date
+    })
+
+    let payable = eligibleDates.reduce(function(memo, d){
+        return memo + wagesEarnedOnDate(employee, d)
+    }, 0)
+
+    return payable
 }
 
 
