@@ -95,12 +95,7 @@ let eligibleDates = employee.timeInEvents.map(function(e){
 
 
 function findEmployeeByFirstName(srcArray,firstName){
-if (srcArray.filter(name => name === firstName)){
-return name
-}
-else {
-  return undefined
-}
+return srcArray.find(element => element.firstName === firstName)
 }
 
 function calculatePayroll(array){
