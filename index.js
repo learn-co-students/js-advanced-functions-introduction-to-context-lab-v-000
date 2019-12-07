@@ -62,12 +62,18 @@ return hoursWorkedOnDate(record,date) * record.payPerHour
 
 
 function allWagesFor(record){
-wagesEarnedOnDate
+console.log(record)
+//foreach card.... find the wages
 }
 
 
 function findEmployeeByFirstName(srcArray,firstName){
-
+if (srcArray.filter(name => name === firstName)){
+return name
+}
+else {
+  return undefined
+}
 }
 
 function calculatePayroll(array){
