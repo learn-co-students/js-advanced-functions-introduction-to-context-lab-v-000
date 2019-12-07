@@ -62,7 +62,8 @@ return hoursWorkedOnDate(record,date) * record.payPerHour
 
 
 function allWagesFor(record){
-console.log(record)
+console.log(hoursWorkedOnDate(record,date))
+//map then reduce the value
 //foreach card.... find the wages
 }
 
