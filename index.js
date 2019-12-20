@@ -10,3 +10,21 @@ let createEmployeeRecord = function(fourElementArray){
     }
 }
 
+let createEmployeeRecords = function(employeeDataArray) {
+    return employeeDataArray.map(data => {
+        return createEmployeeRecord(data)
+    }) 
+}
+
+let createTimeInEvent = function(employeeObject, dateStamp) {
+    console.log(dateStamp)
+    let [date, hour] = dateStamp.split(' ')
+    console.log(date)
+    console.log(hour)
+    employeeObject.timeInEvents.push({
+        type: "TimeIn",
+        hour: parseInt(hour, 10),
+        date,
+    })
+    return employeeObject
+}
