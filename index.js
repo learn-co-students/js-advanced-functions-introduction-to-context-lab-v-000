@@ -70,13 +70,13 @@ let allWagesFor = function(employeeObject) {
 }
 
 let findEmployeeByFirstName = function(srcArray, firstName) {
-    return srcArray.find(function(record){
-      return record.firstName === firstName
-    })
-  }
-  
+    let firstNameReturn =  srcArray.find(record => record.firstName === firstName)
+    return firstNameReturn
+}
   let calculatePayroll = function(arrayOfEmployeeRecords){
       return arrayOfEmployeeRecords.reduce(function(memo, record){
+          console.log("memo", memo)
+          console.log("record", record)
           return memo + allWagesFor(record)
       }, 0)
   }
