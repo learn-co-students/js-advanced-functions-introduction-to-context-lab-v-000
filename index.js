@@ -50,11 +50,8 @@ let wagesEarnedOnDate = function(empRec, dateStr) {
 
 let allWagesFor = function(empRec) {
   let datesWorked = empRec.timeOutEvents.map(item => item.date)
-  console.log(datesWorked)
-  let wages = datesWorked.map(date => hoursWorkedOnDate(empRec, date) * empRec.payPerHour)
-  console.log(wages)
+  let wages = datesWorked.map(date => wagesEarnedOnDate(empRec, date))
   let total = wages.reduce((total, element) => element + total, 0)
-  console.log(total)
   return total
 }
 
