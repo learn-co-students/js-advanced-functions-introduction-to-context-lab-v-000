@@ -60,15 +60,15 @@ function wagesEarnedOnDate(employeeObj, date){
   return (employeeObj.payPerHour * hoursWorked)
 }
 
-
+//allWagesFor
 function allWagesFor(employeeObj){
-  //find the available dates somehow -> iterate through timeInEvents?
-  //use wagesEarnedOnDate,iterate through the dates?
-  //array containing total wages per day, Each new wageday-> new index
+  //find the available dates by iterating through timeInEvents and isolate .date
+  //use wagesEarnedOnDate,call on all timeInDates
+  //push into array containing total wages per day, Each new wageday-> new index
   //use reduce on this array to get aggregate pay
   let wagesArray = []
-  employeeObj.timeInEvents.date.forEach(e => {
+  employeeObj.timeInEvents.forEach(e => {
   wagesArray.push(wagesEarnedOnDate(employeeObj, e.date))
   })
-  return wagesArray
+  return wagesArray.reduce((memo, element) => memo + element, 0)
 }
