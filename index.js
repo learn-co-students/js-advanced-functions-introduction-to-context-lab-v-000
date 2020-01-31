@@ -72,3 +72,17 @@ function allWagesFor(employeeObj){
   })
   return wagesArray.reduce((memo, element) => memo + element, 0)
 }
+
+function findEmployeeByFirstName(employeeObjs, firstName){
+  return employeeObjs.find(x =>{
+    x.firstName === firstName
+    return x
+    //let found = x.firstName === firstName
+    //return !!found || undefined
+  })
+}
+
+
+function calculatePayroll(employeeObjs){
+  return employeeObjs.reduce((m, e) => m + allWagesFor(e), 0)
+}
