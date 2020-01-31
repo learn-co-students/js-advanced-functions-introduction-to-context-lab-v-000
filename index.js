@@ -73,12 +73,13 @@ function allWagesFor(employeeObj){
   return wagesArray.reduce((memo, element) => memo + element, 0)
 }
 
+//findEmployeeByFirstName
 function findEmployeeByFirstName(employeeObjs, firstName){
   return employeeObjs.find(x =>{
-    x.firstName === firstName
-    return x
+   return x.firstName === firstName ? x : undefined //-> note, you need return
     //let found = x.firstName === firstName
-    //return !!found || undefined
+    //return !!found || undefined -> this also works
+    //-> the condition must be present or else it will return the first value, in this case "loki" which inadertendtly passes the Learn test.
   })
 }
 
