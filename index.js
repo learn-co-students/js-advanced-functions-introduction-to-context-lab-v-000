@@ -35,12 +35,14 @@ function createTimeOutEvent(employee, timeOut) {
     return employee;
 }
 
-function hoursWorkedonDate(employee, dateWorked) {
-
+function hoursWorkedOnDate(employee, dateWorked) {
+    let timeIn = employee.timeInEvents.find(function(e) { return e.date === dateWorked });
+    let timeOut = employee.timeOutEvents.find(function(e) { return e.date === dateWorked });
+    return (timeOut.hour - timeIn.hour) / 100;
 }
 
 function wagesEarnedOnDate(employee, dateWorked) {
-
+    return employee.payPerHour * hoursWorkedOnDate(employee, dateWorked);
 }
 
 function allWagesFor(employee) {
