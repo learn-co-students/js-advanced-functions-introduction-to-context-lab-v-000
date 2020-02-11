@@ -314,13 +314,11 @@ describe("The payroll system", function () {
               timesOutRecordRow[1].forEach(function(timeOutStamp){
                 createTimeOutEvent(rec, timeOutStamp)
               })
-            }) 
-            expect(calculatePayroll(employeeRecords)).to.eql(11880)
+            })
+            expect(calculatePayroll(employeeRecords)).to.eql(12480)
           })
         })
       })
     })
   })
 })
-
-
