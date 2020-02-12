@@ -65,14 +65,14 @@ function allWagesFor(employeeRecord) {
 };
 
 function calculatePayroll(employeeRecords) {
-  employeeWages = [];
-  for (const employeeRecord of employeeRecords) {
+  let employeeWages = [];
+  employeeRecords.forEach(employeeRecord => {
     employeeWages.push(allWagesFor(employeeRecord));
-  }
+  });
   return employeeWages.reduce((memo, wages) => memo + wages);
 };
 
-function findEmployeeByFirstName() {
-
+function findEmployeeByFirstName(employeeRecords, firstName) {
+  return employeeRecords.find(employeeRecord => employeeRecord.firstName === firstName);
 };
 
