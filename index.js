@@ -9,8 +9,8 @@ function createEmployeeRecord(employeeInfo) {
   };
 };
 
-function createEmployeeRecords(employeesArray) {
-  return employeesArray.map(e => createEmployeeRecord(e))
+function createEmployeeRecords(employees) {
+  return employees.map(e => createEmployeeRecord(e))
 };
 
 function createTimeInEvent(employeeObject, dateStamp) {
