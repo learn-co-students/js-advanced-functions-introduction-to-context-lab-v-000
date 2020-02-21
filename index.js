@@ -22,27 +22,33 @@ const createEmployeeRecords = (employees) => {
   return employeeObjects;
 };
 
-/* FIXME: create callback function with the body of createTimeInEvent
-const createTimeEvent = (employeeObject, timestamp, type) => {
-  const [date, hour] = timestamp.split(" ")
-  const valArray = ["TimeIn", date, parseInt(hour)];
-  const keys = ["type", "date", "hour"];
+
+const createTimeEvent = (type) => {
+  return (employeeObject, timestamp) => {
+    const [date, hour] = timestamp.split(" ");
+    const typeText = type[0].toUpperCase() + type.slice(1);
+
+    const valArray = [typeText, date, parseInt(hour)];
+    const keys = ["type", "date", "hour"];
  
-  const timeInEvent = arrayToObject(valArray, keys);
+    const timeEvent = arrayToObject(valArray, keys);
   
-  employeeObject.timeInEvents.push(timeInEvent);
-  return employeeObject;
+    employeeObject[type + "Events"].push(timeEvent);
+    return employeeObject;
+  };
 };
-*/
 
 const createTimeInEvent = (employeeObject, timestamp) => {
-  const [date, hour] = timestamp.split(" ")
-  const valArray = ["TimeIn", date, parseInt(hour)];
-  const keys = ["type", "date", "hour"];
- 
-  const timeInEvent = arrayToObject(valArray, keys);
-  
-  employeeObject.timeInEvents.push(timeInEvent);
-  return employeeObject;
+  return createTimeEvent("timeIn")(employeeObject, timestamp);
 };
 
+const createTimeOutEvent = (employeeObject, timestamp) => {
+  return createTimeEvent("timeOut")(employeeObject, timestamp);
+};
+
+const hoursWorkedOnDate = (employeeObject, date) => {
+  const timeIn = employeeObject.timeInEvents.find(record => record.date === date);
+  const timeOut = employeeObject.timeOutEvents.find(record => record.date === date);
+  
+  return (timeOut.hour - timeIn.hour) / 100;
+}
