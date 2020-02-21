@@ -51,4 +51,28 @@ const hoursWorkedOnDate = (employeeObject, date) => {
   const timeOut = employeeObject.timeOutEvents.find(record => record.date === date);
   
   return (timeOut.hour - timeIn.hour) / 100;
-}
+};
+
+const wagesEarnedOnDate = (employeeObject, date) => {
+  const hoursWorked = hoursWorkedOnDate(employeeObject, date);
+  const employeePay = employeeObject.payPerHour;
+  
+  return hoursWorked * employeePay;
+};
+
+const allWagesFor = (employeeObject) => {
+  const datesWorked = employeeObject.timeInEvents.map(clockIn => clockIn.date);
+  return datesWorked.reduce((sum, date) => {
+    return sum + wagesEarnedOnDate(employeeObject, date);
+  }, 0);
+};
+
+const findEmployeeByFirstName = (srcArray, firstName) => {
+  return srcArray.find(employeeObject => employeeObject.firstName === firstName);
+};
+
+const calculatePayroll = (srcArray) => {
+  return srcArray.reduce((sum, employeeObject) => {
+    return sum + allWagesFor(employeeObject);
+  }, 0);
+};
