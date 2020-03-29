@@ -40,10 +40,10 @@ const createTimeOutEvent = (employee, dateTimeStamp) => {
     }
     
 const hoursWorkedOnDate = (employee, dateTimeStamp) => {
-    const timeIns = employee.timeInEvents.find(punch => punch.date === dateTimeStamp)
-    const timeOuts = employee.timeOutEvents.find(punch => punch.date === dateTimeStamp)
+    const timeIn = employee.timeInEvents.find(punch => punch.date === dateTimeStamp)
+    const timeOut = employee.timeOutEvents.find(punch => punch.date === dateTimeStamp)
     
-    return (timeOuts.hour - timeIns.hour) / 100
+    return (timeOut.hour - timeIn.hour) / 100
 }
 
 const wagesEarnedOnDate = (employee, dateTimeStamp) => {
