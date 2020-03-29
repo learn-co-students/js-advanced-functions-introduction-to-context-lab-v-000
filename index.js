@@ -56,11 +56,11 @@ const wagesEarnedOnDate = (employee, dateTimeStamp) => {
 const allWagesFor = (employee) => {
     const datesWorked = employee.timeInEvents.map(event => event.date)
 
-    return datesWorked.reduce((aggregator, date) => aggregator + wagesEarnedOnDate(employee, date), 0)
+    return datesWorked.reduce((accumulator, date) => accumulator + wagesEarnedOnDate(employee, date), 0)
 }
 
 const calculatePayroll = (employees) => {
-    return employees.reduce((aggregator, employee) => aggregator + allWagesFor(employee), 0)
+    return employees.reduce((accumulator, employee) => accumulator + allWagesFor(employee), 0)
 }
 
 const findEmployeeByFirstName = (employees, firstName) => {
