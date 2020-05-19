@@ -35,7 +35,7 @@ function createTimeInEvent(employeeRecord, timeIn) {
   // Destructively update the employeeRecord:
   employeeRecord.timeInEvents.push(
     { type: "TimeIn", date: splitTime[0], hour: Number(splitTime[1]) }
-  );
+  ); // Note: parseInt can be used on the hour as well.
 
   return employeeRecord;
 
@@ -93,4 +93,12 @@ function allWagesFor(employee) {
 
   // Solution 3 (might be the best one):
   return datesWorked.reduce( (wageTotal, date) => wageTotal + wagesEarnedOnDate(employee, date), 0);
+}
+
+function findEmployeeByFirstName(empRecords, firstName) {
+  return empRecords.find(record => record.firstName === firstName);
+}
+
+function calculatePayroll(employeeRecords) {
+  return employeeRecords.reduce( (totalPayroll, employee) => totalPayroll + allWagesFor(employee), 0);
 }
