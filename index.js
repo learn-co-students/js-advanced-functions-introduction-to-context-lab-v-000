@@ -30,14 +30,14 @@ function createEmployeeRecords(employeeArray) {
 }
 
 function createTimeInEvent(employeeRecord, timeIn) {
-  const splitTime = timeIn.split(" ");
+  // const splitTime = timeIn.split(" ");
 
   // Destructively update the employeeRecord:
-  employeeRecord.timeInEvents.push(
-    { type: "TimeIn", date: splitTime[0], hour: Number(splitTime[1]) }
-  ); // Note: parseInt can be used on the hour as well.
+  // employeeRecord.timeInEvents.push(
+    // { type: "TimeIn", date: splitTime[0], hour: Number(splitTime[1]) }
+  // ); // Note: parseInt can be used on the hour as well.
 
-  return employeeRecord;
+  // return employeeRecord;
 
   /* Non-destructively update the employeeRecord (This will fail tests, though):
     return Object.assign(
@@ -47,6 +47,17 @@ function createTimeInEvent(employeeRecord, timeIn) {
         { type: "TimeIn", date: splitTime[0], hour: Number(splitTime[1]) } 
       ]}
     ); // End of Object.assign */
+
+  // Their solution. Does it work with that date? Yes, but why?
+  // Evidently, destructuring assignment not only set the date, but made it available as a key/value pair.
+  // Effectively, 'date' is the same as 'date: timeIn.split(" ")[0]'
+  let [date, hour] = timeIn.split(" ");
+  employeeRecord.timeInEvents.push({
+    type: "TimeIn",
+    hour: parseInt(hour, 10),
+    date,
+  });
+  return employeeRecord;
 } // End of createTimeInEvent
 
 function createTimeOutEvent(employeeRecord, timeOut) {
