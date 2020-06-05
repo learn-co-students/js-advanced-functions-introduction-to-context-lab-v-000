@@ -38,3 +38,8 @@ function createEmployeeRecord(employee) {
             return createEmployeeRecord(record)
         })
     }
+
+    //  1) has a function called createTimeInEvent
+    function createTimeInEvent(e) {
+        console.log(e, "e")
+    }
