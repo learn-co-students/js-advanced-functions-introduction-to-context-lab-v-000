@@ -22,22 +22,19 @@ function createEmployeeRecord(employee) {
 }
 
 // has a function called createEmployeeRecords
-// function createEmployeeRecords(employee) {
-// console.log(employee, "employee") //  TypeError: employee is not a function
-// function createEmployeeRecords(createEmployeeRecord) {
-//     console.log(createEmployeeRecord(), "createEmployeeRecord") // TypeError: createEmployeeRecord is not a function
-                               // Argument(s) Array of Arrays 
-// function createEmployeeRecords() {
-    // TypeError: Cannot read property 'length' of undefined
-// function createEmployeeRecords(twoRows) {
-//     twoRows.length
-    //  TypeError: Cannot read property 'length' of undefined
     function createEmployeeRecords(e) {
-        return (
-            (firstName: e[0]),
-            //        ^ unexpected token 
-            (familyName: e[1])
-            //         ^ unexpected token 
-        )
+    // console.log(e, "e") 
+    // [
+    //     [ 'moe', 'sizlak', 'barkeep', 2 ],
+    //     [ 'bartholomew', 'simpson', 'scamp', 3 ]
+    //   ] e
+    // console.log(e.length, "e length")
+    // 2 e length
 
- }
+        // Iterate over e
+        return e.map((record) => {
+            // creates two records
+            // correctly assigns the first names
+            return createEmployeeRecord(record)
+        })
+    }
