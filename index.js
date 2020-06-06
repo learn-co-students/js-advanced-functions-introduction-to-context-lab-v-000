@@ -81,3 +81,9 @@ function createEmployeeRecord(employee) {
         return employeeRecord        
     }
 
+    
+    function hoursWorkedOnDate(employeeRecord, date) {
+        console.log(date, "date")
+
+        
+    }
