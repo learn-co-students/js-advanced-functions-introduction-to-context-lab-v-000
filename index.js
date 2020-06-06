@@ -39,28 +39,45 @@ function createEmployeeRecord(employee) {
         })
     }
 
-    //  1) has a function called createTimeInEvent
-    function createTimeInEvent(employeeRecord) {
-        console.log(employeeRecord, "employeeRecord") // TypeError: employeeRecord.map is not a function
-        let timeInEvents = "YYYY-MM-DD HHMM"
-    // createTimeInEvent
-//  {
-//   firstName: 'Byron',
-//   familyName: 'Poodle',
-//   title: 'Mascot',
-//   payPerHour: 3,
-//   timeInEvents: [],
-//   timeOutEvents: []
-// } e
-   
-        return {
-            timeInEvents: employeeRecord[4], //    TypeError: Cannot read property '0' of undefined
-             // console.log(employeeRecord[4], "employeeRecord4")
-        }
-        //return employeeRecord.map((timeIn) => {
-            // console.log(timeIn, "timeIn1")
-            // return createEmployeeRecord(timeIn)
-            // console.log(timeIn, "timeIn2")
-        // })
+    // has a function called createTimeInEvent
+    function createTimeInEvent(employeeRecord, dateStamp) {
+        // console.log(employeeRecord, "employeeRecord") 
+        // {
+        //     firstName: 'Byron',
+        //     familyName: 'Poodle',
+        //     title: 'Mascot',
+        //     payPerHour: 3,
+        //     timeInEvents: [],
+        //     timeOutEvents: []
+        //   } employeeRecord
 
+        // console.log(dateStamp, "dateStamp") // 2014-02-28 1400 dateStamp
+
+        // extracts the correct date extracts the correct hour
+        let [date, hour] = dateStamp.split(" ");        
+        employeeRecord.timeInEvents.push({
+            // creates the correct type
+            type: "TimeIn", 
+            // extracts the correct hour
+            hour: parseInt(hour, 10),
+            // extracts the correct date
+            date
+        })      
+        return employeeRecord
     }
+
+    // has a function called createTimeOutEvent
+    function createTimeOutEvent(employeeRecord, dateStamp) {
+        // extracts the correct date extracts the correct hour
+        let [date, hour] = dateStamp.split(" ");
+        employeeRecord.timeOutEvents.push({
+            // creates the correct type
+            type: "TimeOut",
+            // extracts the correct hour
+            hour: parseInt(hour, 10),
+            // extracts the correct date
+            date
+        })
+        return employeeRecord        
+    }
+
