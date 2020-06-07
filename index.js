@@ -82,37 +82,42 @@ function createEmployeeRecord(employee) {
     }
 
     // hoursWorkedOnDate calculates the hours worked when given an employee record and a date
-    // function hoursWorkedOnDate(employeeRecord, date) {
-    //     // console.log(employeeRecord, "employeeRecord")
-    //     // {
-    //     //     firstName: 'Julius',
-    //     //     familyName: 'Caesar',
-    //     //     title: 'General',
-    //     //     payPerHour: 1000,
-    //     //     timeInEvents: [ { type: 'TimeIn', hour: 900, date: '0044-03-15' } ],
-    //     //     timeOutEvents: [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ]
-    //     //   } employeeRecord
-    //     let timeIn = createTimeInEvent(date);
-    //     let timeOut = createTimeOutEvent(date);
-    //     return timeOut - timeIn //TypeError: Cannot read property 'split' of undefined
-        // So date is undefined?
+    function hoursWorkedOnDate(employeeRecord, dateStamp) {
+        // console.log(employeeRecord, "employeeRecord")
+        // {
+        //     firstName: 'Julius',
+        //     familyName: 'Caesar',
+        //     title: 'General',
+        //     payPerHour: 1000,
+        //     timeInEvents: [ { type: 'TimeIn', hour: 900, date: '0044-03-15' } ],
+        //     timeOutEvents: [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ]
+        //   } employeeRecord
+        //console.log(dateStamp, "dateStamp") // 0044-03-15 dateStamp
+        // console.log(employeeRecord.timeInEvents, "employeeRecord.timeInEvents")
+        // [ { type: 'TimeIn', hour: 900, date: '0044-03-15' } ] employeeRecord[timeInEvents]
+        // console.log(employeeRecord.timeOutEvents, "employeeRecord.timeOutEvents")
+        // [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ] employeeRecord.timeOutEvents
 
-        function hoursWorkedOnDate(employeeRecord) {
-            console.log(employeeRecord[4], "employeeRecord4") //undefined employeeRecord4
-            console.log(employee[5], "employeeRecord5")
-            // console.log(employeeRecord, "employeeRecord")
-            // {
-            //     firstName: 'Julius',
-            //     familyName: 'Caesar',
-            //     title: 'General',
-            //     payPerHour: 1000,
-            //     timeInEvents: [ { type: 'TimeIn', hour: 900, date: '0044-03-15' } ],
-            //     timeOutEvents: [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ]
-            //   } employeeRecord
-            let timeIn = createTimeInEvent(date);
-            let timeOut = createTimeOutEvent(date);
-            return timeOut - timeIn
 
+        // Find comparison of date in employeeRecord to dateStamp
+        let employeeRecordDate = employeeRecord.find( ({date}) => date === dateStamp)
+        // TypeError: employeeRecord.find is not a function
+        console.log(employeeRecordDate, "employeeRecordDate")
+
+
+        // Get hour property from timeInEvents Set to variable timeIn
+
+        // Get hour property from timeOutEvents Set to variable timeOut
+
+        // return timeOut - timeIn
+
+
+            
+            // let timeIn = createTimeInEvent(dateStamp);
+            // console.log(timeIn, "timeIn")
+            // let timeOut = createTimeOutEvent(dateStamp);
+            // return timeOut - timeIn
+            
 
 
         // let [date, hour] = date.split
