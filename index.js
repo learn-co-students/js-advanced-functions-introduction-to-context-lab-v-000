@@ -100,7 +100,8 @@ function createEmployeeRecord(employee) {
 
 
         // Find comparison of date in employeeRecord to dateStamp
-        let employeeRecordDate = employeeRecord.find( ({date}) => date === dateStamp)
+        let employeeRecordDate = employeeRecord.timeInEvents.find( ({date}) => date === dateStamp)
+        // let employeeRecordDate = employeeRecord.find( ({date}) => date === dateStamp)
         // TypeError: employeeRecord.find is not a function
         console.log(employeeRecordDate, "employeeRecordDate")
 
