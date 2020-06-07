@@ -98,12 +98,21 @@ function createEmployeeRecord(employee) {
         // console.log(employeeRecord.timeOutEvents, "employeeRecord.timeOutEvents")
         // [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ] employeeRecord.timeOutEvents
 
-
         // Find comparison of date in employeeRecord to dateStamp
-        let employeeRecordDate = employeeRecord.timeInEvents.find( ({date}) => date === dateStamp)
-        // let employeeRecordDate = employeeRecord.find( ({date}) => date === dateStamp)
-        // TypeError: employeeRecord.find is not a function
-        console.log(employeeRecordDate, "employeeRecordDate")
+        let employeeRecordDateIn = employeeRecord.timeInEvents.find( ({date}) =>
+                date === dateStamp)
+                console.log(employeeRecordDateIn, "employeeRecordDateIn")
+                // { type: 'TimeIn', hour: 900, date: '0044-03-15' } employeeRecordDateIn
+                
+        
+        let employeeRecordDateOut = employeeRecord.timeOutEvents.find( ({date}) =>
+                date === dateStamp)
+                console.log(employeeRecordDateOut, "employeeRecordDateOut")
+                // { type: 'TimeOut', hour: 1100, date: '0044-03-15' } employeeRecordDateOut
+
+
+
+            return date
 
 
         // Get hour property from timeInEvents Set to variable timeIn
