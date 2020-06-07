@@ -81,9 +81,48 @@ function createEmployeeRecord(employee) {
         return employeeRecord        
     }
 
-    
-    function hoursWorkedOnDate(employeeRecord, date) {
-        console.log(date, "date")
+    // hoursWorkedOnDate calculates the hours worked when given an employee record and a date
+    // function hoursWorkedOnDate(employeeRecord, date) {
+    //     // console.log(employeeRecord, "employeeRecord")
+    //     // {
+    //     //     firstName: 'Julius',
+    //     //     familyName: 'Caesar',
+    //     //     title: 'General',
+    //     //     payPerHour: 1000,
+    //     //     timeInEvents: [ { type: 'TimeIn', hour: 900, date: '0044-03-15' } ],
+    //     //     timeOutEvents: [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ]
+    //     //   } employeeRecord
+    //     let timeIn = createTimeInEvent(date);
+    //     let timeOut = createTimeOutEvent(date);
+    //     return timeOut - timeIn //TypeError: Cannot read property 'split' of undefined
+        // So date is undefined?
+
+        function hoursWorkedOnDate(employeeRecord) {
+            console.log(employeeRecord[4], "employeeRecord4") //undefined employeeRecord4
+            console.log(employee[5], "employeeRecord5")
+            // console.log(employeeRecord, "employeeRecord")
+            // {
+            //     firstName: 'Julius',
+            //     familyName: 'Caesar',
+            //     title: 'General',
+            //     payPerHour: 1000,
+            //     timeInEvents: [ { type: 'TimeIn', hour: 900, date: '0044-03-15' } ],
+            //     timeOutEvents: [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ]
+            //   } employeeRecord
+            let timeIn = createTimeInEvent(date);
+            let timeOut = createTimeOutEvent(date);
+            return timeOut - timeIn
+
+
+
+        // let [date, hour] = date.split
+        // console.log(employeeRecord[4].)
+        // console.log(date, "date") // DOES NOT HIT
+        // console.log(timeInEvents[0], "timedInEvents0") // DOES NOT HIT
+        // console.log(timeOutEvents[0], "timeOutEvents0")  // DOES NOT HIT
+        
+        
+        // return timeOutEvents - timeInEvents
 
         
     }
