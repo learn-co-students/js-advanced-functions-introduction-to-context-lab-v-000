@@ -133,8 +133,27 @@ function createEmployeeRecord(employee) {
                 return timeOut - timeIn 
     }
 
-
+    // wagesEarnedOnDate multiplies the hours worked by the employee's rate per hour
     function wagesEarnedOnDate(employeeRecord, dateStamp) {
-        
+        // console.log(employeeRecord, "employeeRecord")
+        // {
+        //     firstName: 'Julius',
+        //     familyName: 'Caesar',
+        //     title: 'General',
+        //     payPerHour: 27,
+        //     timeInEvents: [ { type: 'TimeIn', hour: 900, date: '0044-03-15' } ],
+        //     timeOutEvents: [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ]
+        //   } employeeRecord
+        let payRate = employeeRecord.payPerHour
+        // console.log(employeeRecord.payPerHour, "employeeRecord.payPerHour")
+        // 27 employeeRecord.payPerHour
+        // console.log(payRate, "payRate")
+        // 27 payRate
+        // calculates that the employee earned 54 dollars
+        return payRate * hoursWorkedOnDate(employeeRecord,dateStamp)
+    }
+
+    // 
+    function allWageFor(employeeRecord) {
         
     }
