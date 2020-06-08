@@ -154,7 +154,7 @@ function createEmployeeRecord(employee) {
     }
 
     // 
-    function allWageFor(employeeRecord) {
+    function allWagesFor(employeeRecord) {
         console.log(employeeRecord, "employeeRecord")
         
     }
