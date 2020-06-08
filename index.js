@@ -133,4 +133,8 @@ function createEmployeeRecord(employee) {
                 return timeOut - timeIn 
     }
 
-    
+
+    function wagesEarnedOnDate(employeeRecord, dateStamp) {
+        
+        
+    }
