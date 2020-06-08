@@ -98,46 +98,39 @@ function createEmployeeRecord(employee) {
         // console.log(employeeRecord.timeOutEvents, "employeeRecord.timeOutEvents")
         // [ { type: 'TimeOut', hour: 1100, date: '0044-03-15' } ] employeeRecord.timeOutEvents
 
-        // Find comparison of date in employeeRecord to dateStamp
+        // Find comparison of date in employeeRecord to dateStamp for timeInEvents
         let employeeRecordDateIn = employeeRecord.timeInEvents.find( ({date}) =>
                 date === dateStamp)
-                console.log(employeeRecordDateIn, "employeeRecordDateIn")
+                // console.log(employeeRecordDateIn, "employeeRecordDateIn")
                 // { type: 'TimeIn', hour: 900, date: '0044-03-15' } employeeRecordDateIn
+                // console.log(employeeRecordDateIn.date, "employeeRecordDateIn.date")
+                // 0044-03-15 employeeRecordDateIn.date
                 
-        
+                // Get hour property from timeInEvents Set to variable timeIn
+                // let timeIn = employeeRecordDateIn.hour
+                // console.log(employeeRecordDateIn.hour, "employeeRecrdDateIn.hour")
+                // 900 employeeRecrdDateIn.hour
+                let timeIn = employeeRecordDateIn.hour/100
+                // console.log(timeIn, "timeIn")
+                // 9 timeIn
+                
+        // Find comparison of date in employeeRecord to dateStamp for timeOutEvents
         let employeeRecordDateOut = employeeRecord.timeOutEvents.find( ({date}) =>
                 date === dateStamp)
-                console.log(employeeRecordDateOut, "employeeRecordDateOut")
+                // console.log(employeeRecordDateOut, "employeeRecordDateOut")
                 // { type: 'TimeOut', hour: 1100, date: '0044-03-15' } employeeRecordDateOut
+                // console.log(employeeRecordDateOut.date, "employeeRecordDateOut.date")
+                // 0044-03-15 employeeRecordDateOut.date
 
-
-
-            return date
-
-
-        // Get hour property from timeInEvents Set to variable timeIn
-
-        // Get hour property from timeOutEvents Set to variable timeOut
-
-        // return timeOut - timeIn
-
-
-            
-            // let timeIn = createTimeInEvent(dateStamp);
-            // console.log(timeIn, "timeIn")
-            // let timeOut = createTimeOutEvent(dateStamp);
-            // return timeOut - timeIn
-            
-
-
-        // let [date, hour] = date.split
-        // console.log(employeeRecord[4].)
-        // console.log(date, "date") // DOES NOT HIT
-        // console.log(timeInEvents[0], "timedInEvents0") // DOES NOT HIT
-        // console.log(timeOutEvents[0], "timeOutEvents0")  // DOES NOT HIT
-        
-        
-        // return timeOutEvents - timeInEvents
-
-        
+                // Get hour property from timeOutEvents Set to variable timeOut
+                // let timeOut = employeeRecordDateOut.hour
+                // console.log(employeeRecordDateOut.hour, "employeeRecrdDateOut.hour")
+                // 1100 employeeRecrdDateOut.hour
+                let timeOut = employeeRecordDateOut.hour/100
+                // console.log(timeOut, "timeOut")
+                //  11 timeOut
+                // calculates that the employee worked 2 hours
+                return timeOut - timeIn 
     }
+
+    
