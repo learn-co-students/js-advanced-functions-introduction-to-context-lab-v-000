@@ -170,12 +170,54 @@ function createEmployeeRecord(employee) {
         //       { type: 'TimeOut', hour: 1100, date: '0044-03-15' }
         //     ]
         // } employeeRecord
+        
+        // console.log(employeeRecord.payPerHour, "employeeRecord.payPerHour")  
+        // 27 employeeRecord.payPerHour
+        // let payRate = employeeRecord.payPerHour
+
+        // hoursWorkedOnDate(employeeRecord, dateStamp)
+        // .map
+        let datesWorked = employeeRecord.map(hoursWorkedOnDate(employeeRecord, dateStamp) {
+            return dateStamp
+        })
+        console.log(datesWorked, "datesWorked")
+
+
+        // wagesEarnedOnDate(employeeRecord, dateStamp)
+        // .reduce
+
+        // console.log(wagesEarnedOnDate(payRate), "wagesEarnedOnDate(payRate") // NOTHING
+        // console.log(wagesEarnedOnDate(employeeRecord), "wagesEarnedOnDate(employeeRecord") // NOTHING
+
         //return (hoursWorkedOnDate(employeeRecord) * wagesEarnedOnDate(employeeRecord))
-        let workHours = hoursWorkedOnDate(employeeRecord, dateStamp) 
+
+        //let workHours = (employeeRecord.payPerHour).map(hours => hours * wagesEarnedOnDate(employeeRecord)
+
+        // ) 
         //  ReferenceError: calculatePayroll is not defined
         // let workHours = employeeRecord.reduce(wagesEarnedOnDate(workedHours, hour[,]))
         // console.log(hoursWorkedOnDate(employeeRecord, dateStamp), "hoursWorkedOnDate(employeeRecord, dateStamp)")
-        //get date first
-        wagesEarnedOnDate(employeeRecord.payPerHour)
- 
+        
+        // get date first => wagesEarnedOnDate
+        // get timeIn hours from those dates => wagesEarnedOnDate
+        // get timeOut hours from those dates -> wagesEarnedOnDate
+        // let totalHours = (hours, hour) => hours + hour;
+        //     console.log(employeeRecord.reduce(totalHours), "employeeRecord.reduce(totalHours") // NOTHING
+       
+        // let totalHours = employeeRecord.reduce(function wagesEarnedOnDate (accumalator, currentValue) {
+        //     return accumulator + currentValue
+        // }, 0)
+        // console.log(totalHours, "totalHours") // NOTHING
+
+    //   let totalHours = employeeRecord.reduce(function wagesEarnedOnDate (remployeeRecrd, dateStamp) {
+    //          return employeeRecord + dateStamp
+    //      }, 0)
+    //      console.log(totalHours, "totalHours") // NOTHING
+
+        // add those hours to totalHours
+            // Need to iterate over Multiple dates now 
+                // using map or reduce? Reduce
+        //employeeRecord.reduce()
+        // totalHours * payRate
+        // wagesEarnedOnDate(employeeRecord.payPerHour)
     }
