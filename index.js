@@ -178,7 +178,7 @@ function createEmployeeRecord(employee) {
         // hoursWorkedOnDate(employeeRecord, dateStamp)
         // .map
         let datesWorked = employeeRecord.map(hoursWorkedOnDate(employeeRecord, dateStamp) {
-            return dateStamp
+            return datesWorked
         })
         console.log(datesWorked, "datesWorked")
 
