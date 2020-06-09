@@ -153,8 +153,29 @@ function createEmployeeRecord(employee) {
         return payRate * hoursWorkedOnDate(employeeRecord,dateStamp)
     }
 
-    // 
+    // allWagesFor aggregates all the dates' wages and adds them together
     function allWagesFor(employeeRecord) {
-        console.log(employeeRecord, "employeeRecord")
-        
+        // console.log(employeeRecord, "employeeRecord")
+        // {
+        //     firstName: 'Julius',
+        //     familyName: 'Caesar',
+        //     title: 'General',
+        //     payPerHour: 27,
+        //     timeInEvents: [
+        //       { type: 'TimeIn', hour: 900, date: '0044-03-14' },
+        //       { type: 'TimeIn', hour: 900, date: '0044-03-15' }
+        //     ],
+        //     timeOutEvents: [
+        //       { type: 'TimeOut', hour: 2100, date: '0044-03-14' },
+        //       { type: 'TimeOut', hour: 1100, date: '0044-03-15' }
+        //     ]
+        // } employeeRecord
+        //return (hoursWorkedOnDate(employeeRecord) * wagesEarnedOnDate(employeeRecord))
+        let workHours = hoursWorkedOnDate(employeeRecord, dateStamp) 
+        //  ReferenceError: calculatePayroll is not defined
+        // let workHours = employeeRecord.reduce(wagesEarnedOnDate(workedHours, hour[,]))
+        // console.log(hoursWorkedOnDate(employeeRecord, dateStamp), "hoursWorkedOnDate(employeeRecord, dateStamp)")
+        //get date first
+        wagesEarnedOnDate(employeeRecord.payPerHour)
+ 
     }
