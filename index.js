@@ -187,7 +187,10 @@ function createEmployeeRecord(employee) {
         },0)
     }
 
-    
+
+    function calculatePayroll(employeeRecord) {
+        console.log(employeeRecord, "employeeRecord")
+    }
 
 
     
