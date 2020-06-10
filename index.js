@@ -175,9 +175,17 @@ function createEmployeeRecord(employee) {
         // 27 employeeRecord.payPerHour
         // let payRate = employeeRecord.payPerHour
             
-            //return wagesEarnedOnDate(employeeRecord, employeeRecord.timeInEvents[0].date)
-            return employeeRecord.timeInEvents.reduce((totalEvent, e) => {
-                return wagesEarnedOnDate(employeeRecord, e.date) + totalEvent
-             },0)
+        // Using wagesEarnedOnDate, accumulate the value of all dates worked by the employee in the record 
+        // used as context. Amount should be returned as a number.
+        // Testing for the first object in employeeRecord.timeInEvents[0].date
+        //return wagesEarnedOnDate(employeeRecord, employeeRecord.timeInEvents[0].date)
+
+        // totalEvent is the accumalator, e is the event => current value
+        return employeeRecord.timeInEvents.reduce((totalEvent, e) => {
+            // calculates that the employee earned 378 dollars
+            return wagesEarnedOnDate(employeeRecord, e.date) + totalEvent
+        },0)
     }
+
+
     
