@@ -188,9 +188,94 @@ function createEmployeeRecord(employee) {
     }
 
 
-    function calculatePayroll(employeeRecord) {
-        console.log(employeeRecord, "employeeRecord")
+    function findEmployeeByFirstName(src) {
+        // console.log(src.[{familyName}], "src.[{familyName}]")
+        // [
+        //     {
+        //       firstName: 'Loki',
+        //       familyName: 'Laufeysson-Odinsson',
+        //       title: 'HR Representative',
+        //       payPerHour: 35,
+        //       timeInEvents: [],
+        //       timeOutEvents: []
+        //     },
+        //     {
+        //       firstName: 'Natalia',
+        //       familyName: 'Romanov',
+        //       title: 'CEO',
+        //       payPerHour: 150,
+        //       timeInEvents: [],
+        //       timeOutEvents: []
+        //     }
+        //   ] src
+        return (src({firstName}[0]), "src.firstName[0]");
+
+
     }
+
+    // calculatePayroll exists
+    // function calculatePayroll(employeeRecord) {
+        // console.log(employeeRecord, "employeeRecord")
+        // {
+        //     firstName: 'Thor',
+        //     familyName: 'Odinsson',
+        //     title: 'Electrical Engineer',
+        //     payPerHour: 45,
+        //     timeInEvents: [ [Object], [Object], [Object] ],
+        //     timeOutEvents: [ [Object], [Object], [Object] ]
+        //   },
+        //   {
+        //     firstName: 'Loki',
+        //     familyName: 'Laufeysson-Odinsson',
+        //     title: 'HR Representative',
+        //     payPerHour: 35,
+        //     timeInEvents: [ [Object], [Object], [Object] ],
+        //     timeOutEvents: [ [Object], [Object], [Object] ]
+        //   },
+        //   {
+        //     firstName: 'Natalia',
+        //     familyName: 'Romanov',
+        //     title: 'CEO',
+        //     payPerHour: 150,
+        //     timeInEvents: [ [Object], [Object], [Object] ],
+        //     timeOutEvents: [ [Object], [Object], [Object] ]
+        //   },
+        //   {
+        //     firstName: 'Darcey',
+        //     familyName: 'Lewis',
+        //     title: 'Intern',
+        //     payPerHour: 15,
+        //     timeInEvents: [ [Object], [Object], [Object] ],
+        //     timeOutEvents: [ [Object], [Object], [Object] ]
+        //   },
+        //   {
+        //     firstName: 'Jarvis',
+        //     familyName: 'Stark',
+        //     title: 'CIO',
+        //     payPerHour: 125,
+        //     timeInEvents: [ [Object], [Object], [Object] ],
+        //     timeOutEvents: [ [Object], [Object], [Object] ]
+        //   },
+        //   {
+        //     firstName: 'Anthony',
+        //     familyName: 'Stark',
+        //     title: 'Angel Investor',
+        //     payPerHour: 300,
+        //     timeInEvents: [ [Object], [Object], [Object] ],
+        //     timeOutEvents: [ [Object], [Object], [Object] ]
+        //   }
+        // ] employeeRecord
+        // console.log(employeeRecord.payPerHour, "payPerHour") // undefined payPerHour
+        // return employeeRecord.payPerHour.reduce((totalEvent, e) => {
+        //     return wagesEarnedOnDate(employeeRecord, e.payPerHour) + totalEvent
+        // },0)
+
+        // return employeeRecord.timeInEvents.reduce((totalEvent, e) => {
+        //     // calculates that the employee earned 378 dollars
+        //     return wagesEarnedOnDate(employeeRecord, e.date) + totalEvent
+        // },0)
+    // }
+
 
 
     
