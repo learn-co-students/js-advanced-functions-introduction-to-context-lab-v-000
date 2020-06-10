@@ -219,6 +219,9 @@ function createEmployeeRecord(employee) {
 
     // calculatePayroll exists
     function calculatePayroll(employeeRecord) {
+        // return employeeRecord.find(obj => obj.)
+    
+    }
         // console.log(employeeRecord, "employeeRecord")
         // {
         //     firstName: 'Thor',
@@ -269,7 +272,7 @@ function createEmployeeRecord(employee) {
         //     timeOutEvents: [ [Object], [Object], [Object] ]
         //   }
         // ] employeeRecord
-        
+
         // console.log(employeeRecord.payPerHour, "payPerHour") // undefined payPerHour
         // return employeeRecord.payPerHour.reduce((totalEvent, e) => {
         //     return wagesEarnedOnDate(employeeRecord, e.payPerHour) + totalEvent
