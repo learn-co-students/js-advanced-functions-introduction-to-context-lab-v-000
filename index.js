@@ -188,9 +188,12 @@ function createEmployeeRecord(employee) {
     }
 
 
-    function findEmployeeByFirstName(src) {
-        // console.log(src.[{familyName}], "src.[{familyName}]")
-        // [
+    function findEmployeeByFirstName(src, firstName) {
+        // console.log("firstName", firstName)
+        // firstName Loki
+
+        // console.log("src", src)
+        // src [
         //     {
         //       firstName: 'Loki',
         //       familyName: 'Laufeysson-Odinsson',
@@ -207,14 +210,15 @@ function createEmployeeRecord(employee) {
         //       timeInEvents: [],
         //       timeOutEvents: []
         //     }
-        //   ] src
-        return (src({firstName}[0]), "src.firstName[0]");
+        //   ]
 
-
+        // finds "Loki"
+        return src.find(obj => obj.firstName === firstName)
     }
 
+
     // calculatePayroll exists
-    // function calculatePayroll(employeeRecord) {
+    function calculatePayroll(employeeRecord) {
         // console.log(employeeRecord, "employeeRecord")
         // {
         //     firstName: 'Thor',
@@ -265,6 +269,7 @@ function createEmployeeRecord(employee) {
         //     timeOutEvents: [ [Object], [Object], [Object] ]
         //   }
         // ] employeeRecord
+        
         // console.log(employeeRecord.payPerHour, "payPerHour") // undefined payPerHour
         // return employeeRecord.payPerHour.reduce((totalEvent, e) => {
         //     return wagesEarnedOnDate(employeeRecord, e.payPerHour) + totalEvent
