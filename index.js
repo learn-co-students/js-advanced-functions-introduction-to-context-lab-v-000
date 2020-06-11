@@ -278,7 +278,6 @@ function createEmployeeRecord(employee) {
             return allWagesFor(e) + m
         // initialValue is 0
         }, 0)
-
    }
 
 
