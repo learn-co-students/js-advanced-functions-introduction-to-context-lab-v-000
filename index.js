@@ -187,7 +187,7 @@ function createEmployeeRecord(employee) {
         },0)
     }
 
-
+    // findEmployeeByFirstName exists
     function findEmployeeByFirstName(src, firstName) {
         // console.log("firstName", firstName)
         // firstName Loki
@@ -219,9 +219,37 @@ function createEmployeeRecord(employee) {
 
     // calculatePayroll exists
     function calculatePayroll(employeeRecord) {
-        // return employeeRecord.find(obj => obj.)
-    
+
+
+        return employeeRecord.reduce(function(totalEvent, e){
+            return totalEvent + wagesEarnedOnDate(e)
+        }, 0)
+        
+
+
+
+        // return employeeRecord.reduce((totalEvent, e) => {
+            // console.log("totalEvent", totalEvent)
+            // totalEvent 0
+        //     return wagesEarnedOnDate(employeeRecord, e) + totalEvent
+        // }, 0)
+        // console.log("totalEvent", totalEvent) // NOTHING
     }
+
+        // return employeeRecord.timeInEvents.reduce((totalEvent, e) => {
+        //     // calculates that the employee earned 378 dollars
+        //     return wagesEarnedOnDate(employeeRecord, e.date) + totalEvent
+        // },0)
+
+        // console.log("employeeRecord.payPerHour", employeeRecord.payPerHour)
+        // employeeRecord.payPerHour undefined
+
+        // return employeeRecord.find(obj => obj.)
+        // return employeeRecord.payPerHour.reduce((totalEvent, e) => {
+            // calculates that the employee earned 378 dollars
+        //     return allWagesFor(employeeRecord, e.payPerHour) + totalEvent
+        // },0)
+    // }
         // console.log(employeeRecord, "employeeRecord")
         // {
         //     firstName: 'Thor',
