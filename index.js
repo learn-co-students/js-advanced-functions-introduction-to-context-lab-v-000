@@ -216,40 +216,8 @@ function createEmployeeRecord(employee) {
         return src.find(obj => obj.firstName === firstName)
     }
 
-
     // calculatePayroll exists
     function calculatePayroll(employeeRecord) {
-
-
-        return employeeRecord.reduce(function(totalEvent, e){
-            return totalEvent + wagesEarnedOnDate(e)
-        }, 0)
-        
-
-
-
-        // return employeeRecord.reduce((totalEvent, e) => {
-            // console.log("totalEvent", totalEvent)
-            // totalEvent 0
-        //     return wagesEarnedOnDate(employeeRecord, e) + totalEvent
-        // }, 0)
-        // console.log("totalEvent", totalEvent) // NOTHING
-    }
-
-        // return employeeRecord.timeInEvents.reduce((totalEvent, e) => {
-        //     // calculates that the employee earned 378 dollars
-        //     return wagesEarnedOnDate(employeeRecord, e.date) + totalEvent
-        // },0)
-
-        // console.log("employeeRecord.payPerHour", employeeRecord.payPerHour)
-        // employeeRecord.payPerHour undefined
-
-        // return employeeRecord.find(obj => obj.)
-        // return employeeRecord.payPerHour.reduce((totalEvent, e) => {
-            // calculates that the employee earned 378 dollars
-        //     return allWagesFor(employeeRecord, e.payPerHour) + totalEvent
-        // },0)
-    // }
         // console.log(employeeRecord, "employeeRecord")
         // {
         //     firstName: 'Thor',
@@ -301,16 +269,21 @@ function createEmployeeRecord(employee) {
         //   }
         // ] employeeRecord
 
-        // console.log(employeeRecord.payPerHour, "payPerHour") // undefined payPerHour
-        // return employeeRecord.payPerHour.reduce((totalEvent, e) => {
-        //     return wagesEarnedOnDate(employeeRecord, e.payPerHour) + totalEvent
-        // },0)
+        // ...when passed an array of employee records
+        // Iterate over employeeRecord. Use .reduce(m, e)
+        return employeeRecord.reduce((m, e) => {
+            // correctly sums the payroll burden to $11,880 
+            // calculates that the employees earned 770 dollars
+            // Call allWagesFor(e) = currentValue and ADD m = accumulator
+            return allWagesFor(e) + m
+        // initialValue is 0
+        }, 0)
 
-        // return employeeRecord.timeInEvents.reduce((totalEvent, e) => {
-        //     // calculates that the employee earned 378 dollars
-        //     return wagesEarnedOnDate(employeeRecord, e.date) + totalEvent
-        // },0)
-    // }
+   }
+
+
+
+
 
 
 
