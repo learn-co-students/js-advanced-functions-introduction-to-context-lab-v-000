@@ -74,12 +74,13 @@ function createTimeOutEvent(employee, date){
 function hoursWorkedOnDate(employee, d){
   // Behavior
   // Given a date, find the number of hours elapsed between that date's timeInEvent and timeOutEvent
+
   let timeIn = employee.timeInEvents.find(s => s.date === d).hour;
-  let timeOut = employee.timeOunEvents.find(s => s.date === d).hour;
+  let timeOut = employee.timeOutEvents.find(s => s.date === d).hour;
 
   // Returns
   // Hours worked, an Integer
-  return timeIn - timeOut;
+  return (timeOut - timeIn)/100;
   // return employee.timeInEvents[0].hour
 }
 
@@ -92,19 +93,27 @@ function wagesEarnedOnDate(employee, date){
 
   // Returns
   // Pay owed
-  return null;
+  return hoursWorkedOnDate(employee, date) * employee.payPerHour;
 }
 
 // Argument(s)
 // An employee record Object
 function allWagesFor(employee){
+  let pay = 0
   // Behavior
   // Using wagesEarnedOnDate, accumulate the value of all dates worked by the employee in the record used as context.
   // Amount should be returned as a number. HINT: You will need to find the available dates somehow...
 
+  let dates = employee.timeInEvents.map((element) => element.date)
+
+  dates.forEach(date => {
+    pay += wagesEarnedOnDate(employee, date)
+  })
+
   // Returns
+  // couponLocations.reduce(couponCounter, 0)
   // Pay owed for all dates
-  return null;
+  return pay;
 }
 
 // Argument(s)
@@ -116,16 +125,21 @@ function findEmployeeByFirstName(srcArray, firstName){
 
   // Returns
   // Matching record or undefined
-  return null;
+  return srcArray.find(employee => employee.firstName == firstName);
 }
 
 // Argument(s)
 // Array of employee records
-function calculatePayroll(array){
+function calculatePayroll(employees){
+  let pay = 0;
+
+  employees.forEach(employee => {
+    pay += allWagesFor(employee)
+  })
   // Behavior
   // Using wagesEarnedOnDate, accumulate the value of all dates worked by the employee in the record used as context. Amount should be returned as a number.
 
   // Returns
   // Sum of pay owed to all employees for all dates, as a number
-  return null;
+  return pay;
 }
