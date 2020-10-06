@@ -1,8 +1,8 @@
 // Your code here
 //1) has a function called createEmployeeRecord
-function createEmployeeRecord() {
+function createEmployeeRecord(object) {
 
-    this.firstName[0]
+    this.object[0]
 }
 
 //createEmployeeRecord
