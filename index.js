@@ -1,5 +1,5 @@
 // Your code here
-function createEmployeeRecord(employeeInfo){
+const createEmployeeRecord = employeeData => {
   const [
     firstName,
     familyName,
@@ -7,7 +7,7 @@ function createEmployeeRecord(employeeInfo){
     payPerHour,
     timeInEvents = [],
     timeOutEvents = [],
-  ] = employeeInfo;
+  ] = employeeData;
 
   return {
     firstName,
@@ -19,13 +19,13 @@ function createEmployeeRecord(employeeInfo){
   };
 }
 
-function createEmployeeRecords(employeesInfo){
-  return employeesInfo.map(information => {
-    return createEmployeeRecord(information)
+const createEmployeeRecords = employeeData => {
+  return employeeData.map(data => {
+    return createEmployeeRecord(data)
   });
 }
 
-function createTimeEventObject(setType, time){
+const createTimeEventObject = (setType, time) => {
   const dateTime = time.split(" ");
 
   const obj = {
@@ -36,24 +36,39 @@ function createTimeEventObject(setType, time){
   return obj
 }
 
-
-function createTimeInEvent(record, time){
+const createTimeInEvent = (record, time) => {
   record.timeInEvents.push(createTimeEventObject("TimeIn", time));
   return record;
 }
 
-function createTimeOutEvent(record, time){
+const createTimeOutEvent = (record, time) => {
   record.timeOutEvents.push(createTimeEventObject("TimeOut", time));
   return record;
 }
 
-function hoursWorkedOnDate(record, date){
+const hoursWorkedOnDate = (record, date) => {
   const timeIn = record.timeInEvents.find(element => element.date === date);
   const timeOut = record.timeOutEvents.find(element => element.date === date);
-  return (timeOut.hour - timeIn.hour)/100
+  return (timeOut.hour - timeIn.hour)/100;
 }
 
-function wagesEarnedOnDate(record, date){
+const wagesEarnedOnDate = (record, date) => {
   const hours = hoursWorkedOnDate(record, date);
   return record.payPerHour * hours;
+}
+
+const allWagesFor = record => {
+  return record.timeInEvents.reduce((total, timeEvent) => {
+    return wagesEarnedOnDate(record, timeEvent.date) + total;
+  }, 0);
+}
+
+const calculatePayroll = records => {
+  return records.reduce((total, record) => {
+    return allWagesFor(record) + total;
+  }, 0);
+}
+
+const findEmployeeByFirstName = (records, firstName) => {
+  return records.find(record => record.firstName === firstName);
 }
