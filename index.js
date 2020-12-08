@@ -50,12 +50,16 @@ const wagesEarnedOnDate = (employee, date) => {
 }
 
 const allWagesFor = (employee) => {
-    let timeInEvents = Object.values(employee.timeInEvents['date']);
-    return timeInEvents;
-    // let totalPay = dates.map(function(date) {
-    //     return wagesEarnedOnDate(employee, date);
-    // });
-    // return totalPay;
+    let dates = [];
+    dates.push(employee.timeInEvents[0].date);
+    dates.push(employee.timeInEvents[1].date);
+    let pay = dates.map(function(date) {
+        return wagesEarnedOnDate(employee, date);
+    });
+    let totalPay = pay.reduce(function(accumulator, currentValue) {
+        return accumulator + currentValue
+    })
+    return totalPay;
 }
 
 const findEmployeeByFirstName = (srcArray, firstName) => {
@@ -63,5 +67,10 @@ const findEmployeeByFirstName = (srcArray, firstName) => {
 }
 
 const calculatePayroll = (arr) => {
-
+    let payroll = arr.map(function(employee) {
+        return allWagesFor(employee);
+    });
+    return payroll.reduce(function(accumulator, currentValue) {
+        return accumulator + currentValue
+    });
 }
