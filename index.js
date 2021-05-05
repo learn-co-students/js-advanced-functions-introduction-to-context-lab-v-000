@@ -42,14 +42,50 @@ function createTimeOutEvent(employeeRecord, dateStamp){
 
 function  hoursWorkedOnDate(employeeRecord, date){
     let inEvent =  employeeRecord.timeInEvents.find(
+                       x =>  x.date === date
+                   )
+    let outEvent =  employeeRecord.timeOutEvents.find(
                    x =>  x.date === date
                    )
-    let outEvent =  employeeRecord.timeInEvents.find(
-                   x =>  x.date === date
-                   )
 
-    return (outEvent - inEvent)/100
+  //  console.log(inEvent.hour)
+  //  console.log(outEvent.hour)
+    return (outEvent.hour - inEvent.hour)/100
+
+}
+
+function wagesEarnedOnDate(employeeRecord, date){
+   let rawEarned = hoursWorkedOnDate(employeeRecord, date) * employeeRecord.payPerHour
+   return rawEarned
+
+}
 
 
+function allWagesFor(employeeRecord){
+   let workedDays= employeeRecord.timeInEvents.map(
+          x => x.date
+     )
+
+
+   let payMoney =   workedDays.reduce(
+           function (acu, cur){
+             return acu + wagesEarnedOnDate(employeeRecord, cur)
+           }, 0)
+   return  payMoney
+}
+
+function findEmployeeByFirstName(srcArray, firstName){
+    let emp = srcArray.map((a) => a.firstName).indexOf(firstName)
+
+
+    //
+
+
+
+    // if  (srcArray.indexOf(firstName) == -1)
+    //    return undefined
+    // else{
+    //   return srcArray[srcArray.indexOf(firstName)]
+    // }
 
 }
