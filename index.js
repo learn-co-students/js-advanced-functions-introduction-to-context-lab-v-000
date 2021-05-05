@@ -74,18 +74,17 @@ function allWagesFor(employeeRecord){
    return  payMoney
 }
 
-function findEmployeeByFirstName(srcArray, firstName){
-    let emp = srcArray.map((a) => a.firstName).indexOf(firstName)
 
+let findEmployeeByFirstName = function(srcArray, firstName) {
+  return srcArray.find(function(rec){
+    return rec.firstName === firstName
+  })
+}
 
-    //
-
-
-
-    // if  (srcArray.indexOf(firstName) == -1)
-    //    return undefined
-    // else{
-    //   return srcArray[srcArray.indexOf(firstName)]
-    // }
-
+function  calculatePayroll(calculatePayroll){
+   return calculatePayroll.reduce(
+          function( acu, cur){
+             return acu + allWagesFor(cur)
+          }, 0 )
+   
 }
