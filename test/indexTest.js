@@ -43,8 +43,6 @@ describe("The payroll system", function () {
     })
 
     describe("createEmployeeRecords", function () {
-      let employeeRecords;
-
       let twoRows = [
         ["moe", "sizlak", "barkeep", 2],
         ["bartholomew", "simpson", "scamp", 3]
@@ -83,14 +81,11 @@ describe("The payroll system", function () {
   })
 
   describe("it adds a timeIn event Object to an employee's record of timeInEvents when provided an employee record and Date/Time String and returns the updated record", function () {
-
     it("has a function called createTimeInEvent", function () {
       expect(createTimeInEvent).to.exist
     })
 
     describe("createTimeInEvent", function () {
-      let bpRecord, updatedBpRecord, newEvent
-
       it("creates the correct type", function () {
         let bpRecord = createEmployeeRecord(["Byron", "Poodle", "Mascot", 3])
         let updatedBpRecord = createTimeInEvent(bpRecord, "2014-02-28 1400")
@@ -115,14 +110,11 @@ describe("The payroll system", function () {
   })
 
   describe("it adds a timeOut event Object to an employee's record of timeOutEvents when provided an employee record and Date/Time String and returns the updated record", function () {
-
     it("has a function called createTimeOutEvent", function () {
       expect(createTimeOutEvent).to.exist
     })
 
     describe("createTimeOutEvent", function () {
-      let bpRecord, updatedBpRecord, newEvent
-
       it("creates the correct type", function () {
         let bpRecord = createEmployeeRecord(["Byron", "Poodle", "Mascot", 3])
         let updatedBpRecord = createTimeOutEvent(bpRecord, "2015-02-28 1700")
